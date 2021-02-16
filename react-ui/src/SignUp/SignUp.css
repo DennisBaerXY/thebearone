@@ -112,9 +112,8 @@
     width:calc(100% - 60px);
     box-sizing: border-box;
 
-    border: 1px solid var(--unnamed-color-707070);
+    
     background: #2E2828 0% 0% no-repeat padding-box;
-    border: 1px solid #707070;
     border-radius: 16px;
     opacity: 1;
 
