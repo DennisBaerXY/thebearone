@@ -1,0 +1,24 @@
+{
+  "name": "TheBearOneReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "build": "cd react-ui/ && npm install && npm run build"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "react-ui/node_modules"
+  ],
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [
+    "node",
+    "react",
+    "theBearOne"
+  ],
+  "devDependencies": {}
+}

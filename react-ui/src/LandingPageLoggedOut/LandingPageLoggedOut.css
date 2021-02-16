@@ -1,0 +1,193 @@
+.LandingPage{
+    margin: 0;
+}
+
+.TopBar{
+    margin: 0;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+.headerTitle{
+    position: relative;
+    
+    margin: 0 auto;
+    margin-top:76px;
+  
+    
+    text-align: center;
+    
+    
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-128)/var(--unnamed-line-spacing-170) var(--unnamed-font-family-segoe-ui);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+   
+    font: normal normal normal 128px/170px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.ButtonContainer{
+    
+    position: absolute;
+
+    width: 508px;
+
+    left:71%;
+    top: 76px;
+    
+
+    
+    
+    
+    
+   
+
+   
+   
+}
+
+
+.navButton{
+    position: relative;
+    border: 3px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #50474747;
+    border: 3px solid #707070;
+    border-radius: 14px;
+    opacity: 1;
+    width: 174px;
+    height: 52px;
+
+
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-28)/var(--unnamed-line-spacing-37) var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    
+    font: normal normal normal 28px/37px Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+
+    margin: 75px;
+    margin-left: 40px;
+    margin-right:40px;
+
+    cursor: pointer;
+
+    transition: all 1s ease-in-out;
+
+
+    
+    
+
+}
+
+.navButton:hover{
+
+    bottom:3px;
+    background-color: rgb(187, 238, 238);;
+}
+
+.ContentContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top:5%;
+
+    width:1200px;
+    
+}
+
+
+.LandingPageArtikle{
+    width: 535px;
+height: 320px;
+
+font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 24px/32px var(--unnamed-font-family-roboto);
+letter-spacing: var(--unnamed-character-spacing-0);
+color: var(--unnamed-color-000000);
+text-align: justify;
+font: normal normal normal 24px/32px Roboto;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+
+
+}
+
+.LandingPageBox{
+    width: 368px;
+    height: 368px;
+    border: 1px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 30px;
+    opacity: 1;
+}
+
+.LandingPageBoxHeader{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5%;
+
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 65px/86px var(--unnamed-font-family-roboto);
+letter-spacing: var(--unnamed-character-spacing-0);
+color: var(--unnamed-color-000000);
+
+font: normal normal normal 65px/86px Roboto;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+}
+
+.centerSignupButton{
+    
+    margin-top:111px;
+    display: flex;
+    justify-content:center;
+}
+
+.SignUpButton{
+
+   position: relative;
+
+    width: 286px;
+    height: 86px;
+    border: 3px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 10px #50474747;
+    border: 3px solid #707070;
+    border-radius: 33px;
+    opacity: 1;
+
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 47px/62px var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: center;
+    font: normal normal normal 47px/62px Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+
+    cursor: pointer;
+    transition: all 2s ease-in-out;
+
+}
+
+.SignUpButton:hover{
+
+    bottom:3px;
+    background-color: rgb(187, 238, 238);
+
+
+}
+
+
+
