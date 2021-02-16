@@ -34,7 +34,9 @@ const LandingPageLoggedOut = (props) => {
       </div>
 
       <div className='centerSignupButton'>
-        <button className='SignUpButton'>Sign Up</button>
+        <Link to='/signup'>
+          <button className='SignUpButton'>Sign Up</button>
+        </Link>
       </div>
     </div>
   );

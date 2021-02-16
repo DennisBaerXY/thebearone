@@ -37,7 +37,7 @@
     width: 508px;
 
     left:71%;
-    top: 76px;
+    top: 0px;
     
 
     
@@ -79,9 +79,6 @@
     cursor: pointer;
 
     transition: all 1s ease-in-out;
-
-
-    
     
 
 }
