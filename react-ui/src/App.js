@@ -4,6 +4,7 @@ import LandingPageLoggedOut from "./LandingPageLoggedOut/LandingPageLoggedOut";
 import SignUp from "./SignUp/SignUp";
 import Login from "./Login/Login";
 import Dashboard from "./Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -18,7 +19,7 @@ function App() {
             <Route exact path='/' component={LandingPageLoggedOut} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
-            <Route exact path='/dashboard' component={Dashboard} />
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
           </Switch>
         </AuthProvider>
       </Router>

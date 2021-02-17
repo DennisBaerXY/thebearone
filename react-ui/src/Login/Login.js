@@ -12,7 +12,7 @@ const Login = () => {
   const passwordRef = useRef();
   const history = useHistory();
 
-  const { login } = useAuth();
+  const { login, currentUser } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +31,9 @@ const Login = () => {
 
   if (loading) {
     return <p>Loading....</p>;
+  }
+  if (currentUser) {
+    history.push("/");
   }
   return (
     <div>

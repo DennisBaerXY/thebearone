@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import "./SignUp.css";
 
@@ -7,6 +7,7 @@ const SignUp = () => {
   let [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const history = useHistory();
 
   const usernameRef = useRef();
   const emailRef = useRef();
@@ -42,6 +43,7 @@ const SignUp = () => {
         emailRef.current.value,
         passwordRef.current.value
       );
+      history.push("/");
     } catch {
       setError("Failed to create an account");
     }
@@ -111,7 +113,7 @@ const SignUp = () => {
         </div>
 
         <button disabled={loading} className='Login-button' type='submit'>
-          <p className='Login-button-text'>Log in</p>
+          <p className='Login-button-text'>Register</p>
         </button>
         <Link to='/login' className='account-exists'>
           Already have an account?
