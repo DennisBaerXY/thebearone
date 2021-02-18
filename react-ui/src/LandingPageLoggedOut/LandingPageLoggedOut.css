@@ -188,7 +188,7 @@ opacity: 1;
 
 
 .welcomeBackMessage{
-   
+   margin: 0;
     margin-top:56px;
     height: 73px;
     
@@ -202,5 +202,125 @@ color: #000000;
 opacity: 1;
 }
 
+.subWelcomeMessage{
+    margin: 0 auto;
+    margin-top:22px;
+    text-align: center;
+
+    width: 475px;
+    height: 54px;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-41)/var(--unnamed-line-spacing-54) var(--unnamed-font-family-segoe-ui);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+  
+    font: normal normal normal 41px/54px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.recentlyTodoBox{
+    box-sizing: border-box;
+    padding: 0 50px;
+    margin: 0 auto;
+    margin-top:8px;
+    width: 535px;
+    height: 215px;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 26px;
+    opacity: 1;
+    overflow: hidden;
+    
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.recentTodoButton{
+    position: relative;
+    margin-top: 18px;
+   
+    width: 100%;
+    
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 1px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000052;
+    border: 1px solid #707070;
+    border-radius: 15px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.recentTodoButton:hover{
+   left: 12px;
+}
+
+.recentTodoButton-text{
+    
+    width:100%;
+    margin: 9px 0;
+    margin-left: 15px;
+
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) 17px/22px var(--unnamed-font-family-segoe-ui);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: left;
+    font: normal normal normal 17px/22px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+
+    
+}
+
+
+.loggedInButtonBox{
+    margin-top: 83px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+}
+
+.navigationLoggedIn{
+    position: relative;
+    width: 320px;
+    height: 85px;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 3px solid var(--unnamed-color-707070);
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 3px solid #707070;
+    border-radius: 35px;
+    opacity: 1;
+
+cursor: pointer;
+
+margin: 0 50px;
+}
+
+.navigationLoggedIn:hover{
+    bottom:3px;
+}
+.navigationButtonText{
+    height: 54px;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-41)/var(--unnamed-line-spacing-54) var(--unnamed-font-family-segoe-ui);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    text-align: left;
+    font: normal normal normal 41px/54px Segoe UI;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+#dashboardButton{
+    background-color: rgb(179, 255, 255);
+}
 
 

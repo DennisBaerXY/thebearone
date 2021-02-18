@@ -26,6 +26,39 @@ const LandingPageLoggedOut = (props) => {
         <h2 className='welcomeBackMessage'>
           Welcome back {currentUser.displayName}🎉🎉
         </h2>
+
+        <h3 className='subWelcomeMessage'>Recently visited Todo-Lists</h3>
+        <div className='recentlyTodoBox'>
+          <button className='recentTodoButton'>
+            <p className='recentTodoButton-text'>1. Shopping List🛒</p>
+          </button>
+          <button className='recentTodoButton'>
+            <p className='recentTodoButton-text'>2. Stuff to do 😉</p>
+          </button>
+          <button className='recentTodoButton'>
+            <p className='recentTodoButton-text'>3. Shopping List</p>
+          </button>
+          <button className='recentTodoButton'>
+            <p className='recentTodoButton-text'>4. Shopping List</p>
+          </button>
+          <button className='recentTodoButton'>
+            <p className='recentTodoButton-text'>5. Shopping List</p>
+          </button>
+        </div>
+
+        <div className='loggedInButtonBox'>
+          <Link to='/todo-lists'>
+            <button className='navigationLoggedIn'>
+              <span className='navigationButtonText'>Todo Lists</span>
+            </button>
+          </Link>
+
+          <Link to='/dashboard'>
+            <button className='navigationLoggedIn' id='dashboardButton'>
+              <span className='navigationButtonText'>Dashboard</span>
+            </button>
+          </Link>
+        </div>
         <div className='ContentContainer'>
           <p className='LandingPageArtikle'>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
@@ -42,11 +75,7 @@ const LandingPageLoggedOut = (props) => {
           </div>
         </div>
 
-        <div className='centerSignupButton'>
-          <Link to='/signup'>
-            <button className='SignUpButton'>Sign Up</button>
-          </Link>
-        </div>
+        <div className='centerSignupButton'></div>
       </div>
     );
   } else {

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 
 const AuthContext = React.createContext();
 export function useAuth() {
@@ -8,17 +8,25 @@ export function useAuth() {
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  function signup(username, email, password) {
-    return auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-        return user.user.updateProfile({
-          displayName: username,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
+  async function signup(username, email, password) {
+    try {
+      const user = await auth.createUserWithEmailAndPassword(email, password);
+
+      await user.user.updateProfile({
+        displayName: username,
       });
+
+      const doc = await db.collection("users").add({
+        uid: user.user.uid,
+        todoLists: [],
+        username: user.user.displayName,
+        recentlyVisitedTodoLists: [],
+      });
+
+      console.log("Document written with ID: ", doc.id);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   function login(email, password) {
