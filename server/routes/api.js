@@ -1,14 +1,12 @@
 var express = require("express");
 var router = express.Router();
+require("dotenv").config();
 
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://dbAdmin:Ritter1209@cluster0.0lhuy.mongodb.net/theBearOne?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.ATLAS_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 router.get("/", (req, res) => {
   res.json({
