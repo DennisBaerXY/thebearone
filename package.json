@@ -1,7 +1,6 @@
 {
-  "name": "TheBearOneReact",
+  "name": "thebearonereact",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node server",
@@ -20,5 +19,16 @@
     "react",
     "theBearOne"
   ],
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DennisBaerXY/thebearone.git"
+  },
+  "author": "Dennis Baer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DennisBaerXY/thebearone/issues"
+  },
+  "homepage": "https://github.com/DennisBaerXY/thebearone#readme",
+  "description": ""
 }
