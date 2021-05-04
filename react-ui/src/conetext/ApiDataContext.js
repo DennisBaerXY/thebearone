@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
+import { useLoadingContext } from "./LoadingContext";
 //Creates the Context
 const ApiDataContext = React.createContext();
-
+const socket = io();
 //Component that wraps the other Components to provide the Context
 export function ApiDataContextProvider(props) {
+  const setLoading = useLoadingContext().setloading;
   const [guestbookData, setGuestbookData] = useState();
   const fetchGuestbookEntrys = async () => {
+    setLoading(true);
     let response = await fetch("/api/guestbook/entries");
     let data = await response.json();
+
     setGuestbookData(data);
+    setLoading(false);
   };
 
   const postDataToGuestbook = async (data) => {
+    setLoading(true);
     const dataObject = {
       name: data.name,
-      date: data.date,
       entry: data.entry,
     };
     let response = await fetch("/api/guestbook/entries", {
@@ -25,33 +30,46 @@ export function ApiDataContextProvider(props) {
         "Content-Type": "application/json",
       },
     });
-    console.log(response.status);
+    setLoading(false);
+    if (response.ok) {
+      dataObject.date = new Date().toISOString();
+      socket.emit("addedData", data);
+
+      setGuestbookData((old) => [...old, dataObject]);
+    }
   };
 
   useEffect(() => {
     fetchGuestbookEntrys();
   }, []);
 
-  /*
   useEffect(() => {
-    
-    const socket = io();
-    socket.on("connect", (data) => {
-      socket.emit("hello", "Hello world from Client");
-    });
-    socket.on("messages", (data) => {
-      console.log(data);
-    });
+    try {
+      socket.connect();
+      socket.on("connect", (data) => {
+        socket.emit("hello", "Hello world from Client");
+      });
+      socket.on("messages", (data) => {});
+      socket.on("newData", (data) => {
+        data.date = new Date().toISOString();
+        setGuestbookData((old) => [...old, data]);
+      });
+
+      function name(params) {}
+    } catch (err) {}
 
     return () => socket.disconnect();
-    
   }, []);
-  */
 
   return (
     //Context Provider from our previouse element that used createContext
     <ApiDataContext.Provider
-      value={{ guestbookData, fetchGuestbookEntrys, postDataToGuestbook }}
+      value={{
+        guestbookData,
+        fetchGuestbookEntrys,
+        postDataToGuestbook,
+        setGuestbookData,
+      }}
     >
       {props.children}
     </ApiDataContext.Provider>

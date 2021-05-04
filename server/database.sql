@@ -10,3 +10,11 @@ CREATE TABLE GUESTBOOK(
 
 --insert fake guestbook entrys
 insert into guestbook (name,date,entry) values ('Dennis', '2.5.2021','Heute ist doch ein schöner tag');
+
+--select all
+
+select * from guestbook;
+
+--delete
+
+delete from guestbook where *;

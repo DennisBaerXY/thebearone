@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { ApiDataContextProvider } from "./conetext/ApiDataContext";
+import { LoadingContextProvider } from "./conetext/LoadingContext";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApiDataContextProvider>
+    <LoadingContextProvider>
       <App />
-    </ApiDataContextProvider>
+    </LoadingContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

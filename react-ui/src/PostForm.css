@@ -1,0 +1,55 @@
+*{
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.PostForm{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1B344B;
+    
+    border-radius: 20px;
+    gap: 20px;
+    padding: 50px;
+    width: 700px;
+    margin-bottom: 200px;
+    
+}
+
+.inputGroup {
+     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+label{
+    color:#F04F52;
+    font-size: 1.5em
+}
+
+.inputField{
+   
+    padding: 20px 10px;
+    font-size: 1em;
+    border-radius: 12px;
+    border: none;
+}
+.inputField:target{
+    outline: none;
+}
+.inputField:focus{
+    outline: none;
+}
+
+.submit-button {
+    font-size: 2em;
+    
+    padding: 20px;
+    width: 50%;
+    border: none;
+    background-color: #F04F52;
+    color: aliceblue;
+    border-radius: 12px;
+}
+

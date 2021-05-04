@@ -24,20 +24,35 @@ if (!isDev && cluster.isMaster) {
   });
 } else {
   const app = express();
+  const server = require("http").createServer(app);
+  const io = require("socket.io")(server);
+
   app.use(express.json());
   app.use(morgan("dev"));
+
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
   const apiRouter = require("./routes/api");
+
   // Answer API requests.
   app.use("/api", apiRouter);
+  app.io = io;
 
-  app.listen(PORT, function () {
+  server.listen(PORT, function () {
     console.error(
       `Node ${
         isDev ? "dev server" : "cluster worker " + process.pid
       }: listening on port ${PORT}`
     );
+  });
+  io.on("connection", (socket) => {
+    socket.on("hello", (data) => {});
+
+    socket.on("addedData", (data) => {
+      socket.broadcast.emit("newData", data);
+    });
+
+    socket.on("disconnect", () => {});
   });
 }
