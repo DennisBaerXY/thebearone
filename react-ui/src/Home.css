@@ -1,0 +1,178 @@
+*{
+    font-family: Roboto, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+}
+.Home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pageHeader {
+    margin: 0;
+    margin-top: 50px;
+
+   text-align: center;
+   font: normal normal normal 60px/79px Roboto;
+   letter-spacing: 0px;
+   color: #1B344B;
+   opacity: 1;
+}
+.subHeader{
+    margin: 0;
+    margin-top: 5px;
+    text-align: center;
+
+    font: normal normal normal 22px/29px Roboto;
+    letter-spacing: 0px;
+    color: #1B344B;
+    opacity: 0.6;
+}
+
+.text{
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0;
+    
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-24)/var(--unnamed-line-spacing-32) var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-1b344b);
+    text-align: center;
+    font: normal normal normal 24px/32px Roboto;
+    letter-spacing: 0px;
+    color: #1B344B;
+    opacity: 1;
+}
+
+
+.nav-Button{
+
+   
+    margin-top: 50px;
+    width: 200px;
+    height: 75px;
+
+    border: none;
+    background: #F04F52 0% 0% no-repeat padding-box;
+    border-radius: 17px;
+    opacity: 1;
+
+    font-size: 32px;
+    color: white;
+   
+}
+
+.nav-Button:hover {
+
+cursor: pointer;
+    
+
+}
+
+.button_subtext{
+    margin-top: 5px;
+    margin-bottom: 25px;
+
+    
+    text-align: center;
+    font: normal normal normal 24px/32px Roboto;
+    letter-spacing: 0px;
+    color: #1B344B;
+    opacity: 1;
+}
+
+.TutorialSection{
+    
+    background-color: #1B344B;
+
+    padding-top: 120px;
+    padding-left: 240px;
+    overflow: hidden;
+}
+
+
+.tutorial_row{
+    margin-top: 120px;
+}
+.Tutorial-header{
+    font: var(--unnamed-font-style-normal) normal bold 30px/39px var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-f04f52);
+    text-align: left;
+    font: normal normal bold 30px/39px Roboto;
+    letter-spacing: 0px;
+    color: #F04F52;
+    opacity: 1;
+    margin: 20px 0;
+}
+
+.flex-row{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.tutorial_text_container{
+    width: 50%;
+     margin-right: 100px;
+}
+.Tutorial-Text{
+    width: 100%;
+   
+
+   font-size: 2rem;
+   font-weight: 400;
+   
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-f7f5f4);
+    text-align: left;
+    font: normal normal normal 22px/29px Roboto;
+    letter-spacing: 0px;
+    color: #F7F5F4;
+    opacity: 1;
+}
+
+.tutorial_img{
+    width: 50%;
+    margin-right: 100px;
+}
+
+.routen-header{
+
+    margin-top: 50px;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-f7f5f4);
+    text-align: left;
+    font: normal normal bold 26px/34px Roboto;
+    letter-spacing: 0px;
+    color: #F7F5F4;
+    opacity: 1;
+}
+
+
+.apiDokRow{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 200px;
+   
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-22)/var(--unnamed-line-spacing-29) var(--unnamed-font-family-roboto);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-f7f5f4);
+    text-align: left;
+    font: normal normal normal 22px/29px Roboto;
+    letter-spacing: 0px;
+    color: #F7F5F4;
+    opacity: 1;
+}
+.methodHead{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.MethodBox{
+    width: 50%;
+}
+

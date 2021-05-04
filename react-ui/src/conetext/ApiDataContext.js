@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { io } from "socket.io-client";
 //Creates the Context
 const ApiDataContext = React.createContext();
 
@@ -32,18 +32,28 @@ export function ApiDataContextProvider(props) {
     fetchGuestbookEntrys();
   }, []);
 
+  /*
   useEffect(() => {
-    if (guestbookData) {
-      console.log(guestbookData);
-    }
-  }, [guestbookData]);
+    
+    const socket = io();
+    socket.on("connect", (data) => {
+      socket.emit("hello", "Hello world from Client");
+    });
+    socket.on("messages", (data) => {
+      console.log(data);
+    });
+
+    return () => socket.disconnect();
+    
+  }, []);
+  */
 
   return (
     //Context Provider from our previouse element that used createContext
     <ApiDataContext.Provider
       value={{ guestbookData, fetchGuestbookEntrys, postDataToGuestbook }}
     >
-      {props.children},
+      {props.children}
     </ApiDataContext.Provider>
   );
 }

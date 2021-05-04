@@ -1,18 +1,21 @@
 import React, { useRef } from "react";
 
-//import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+
 import { useApiContext } from "./conetext/ApiDataContext";
 import { PostForm } from "./PostForm";
+import { Home } from "./Home";
+import { GUI } from "./GUI";
 
 function App() {
-  const apiContext = useApiContext();
-
   return (
-    <div className='App'>
-      <h1>Hallo Welt</h1>
-      <PostForm></PostForm>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' exact component={Home}></Route>
+        <Route path='/gui' exact component={GUI}></Route>
+      </Switch>
+    </Router>
   );
 }
 
