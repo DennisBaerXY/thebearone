@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
 
 const isDev = process.env.NODE_ENV !== "production";
 const PORT = process.env.PORT || 5000;
@@ -22,14 +24,14 @@ if (!isDev && cluster.isMaster) {
   });
 } else {
   const app = express();
-
+  app.use(express.json());
+  app.use(morgan("dev"));
   // Priority serve any static files.
   app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
+  const apiRouter = require("./routes/api");
   // Answer API requests.
-  app.get("/api", function (req, res) {
-    res.json({ message: "Hello from the custom server!" });
-  });
+  app.use("/api", apiRouter);
 
   app.listen(PORT, function () {
     console.error(

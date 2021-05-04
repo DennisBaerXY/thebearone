@@ -2,16 +2,33 @@ var express = require("express");
 var router = express.Router();
 require("dotenv").config();
 
-const mongoose = require("mongoose");
-mongoose.connect(process.env.ATLAS_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+const pool = require("../db");
+
+router.get("/guestbook/entries", async (req, res) => {
+  try {
+    const ergebnis = await pool.query("select * from guestbook");
+    res.json(ergebnis.rows);
+  } catch (error) {
+    res.status(401).json({
+      error: "Error occured from reading Database",
+    });
+  }
 });
 
-router.get("/", (req, res) => {
-  res.json({
-    wasser: "wasser",
-  });
-});
+router.post("/guestbook/entries", async (req, res) => {
+  try {
+    let data = req.body;
 
+    data.date = new Date().toISOString();
+
+    const newEntry = await pool.query(
+      "insert into guestbook (name,date,entry) values ($1, $2,$3) returning *",
+      [data.name, data.date, data.entry]
+    );
+    res.status(200).json({ status: "Posted!" });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(404);
+  }
+});
 module.exports = router;
