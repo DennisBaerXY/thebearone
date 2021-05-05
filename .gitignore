@@ -1,3 +1,3 @@
 node_modules
-*.env
-react-ui\.env.local
+.env
+react-ui/.env.local
