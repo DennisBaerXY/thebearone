@@ -17,7 +17,7 @@ export const GUI = () => {
       <h4 className='subHeader'>made by Dennis Bär🐻</h4>
 
       <div className='entrysContainer'>
-        {apiContext ? (
+        {apiContext.length > 0 ? (
           apiContext.map((object, index) => {
             return (
               <Entry

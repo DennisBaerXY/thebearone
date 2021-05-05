@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path='/' exact component={Home}></Route>
         <Route path='/gui' exact component={GUI}></Route>
-        <Route path='/' component={Home}></Route>
       </Switch>
     </Router>
   );
