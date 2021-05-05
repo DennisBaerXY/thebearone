@@ -6,7 +6,6 @@ const ApiDataContext = React.createContext();
 const socket = io();
 //Component that wraps the other Components to provide the Context
 export function ApiDataContextProvider(props) {
-  const setLoading = useLoadingContext().setloading;
   const [guestbookData, setGuestbookData] = useState([]);
   const fetchGuestbookEntrys = async () => {
     let response = await fetch("/api/guestbook/entries");
