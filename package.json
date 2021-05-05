@@ -2,6 +2,10 @@
   "name": "thebearonereact",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "14.15.5",
+    "npm": "6.14.11"
+  },
   "scripts": {
     "start": "node server",
     "build": "cd react-ui/ && npm install && npm run build"
