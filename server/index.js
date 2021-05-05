@@ -36,8 +36,8 @@ if (!isDev && cluster.isMaster) {
   const apiRouter = require("./routes/api");
 
   // Answer API requests.
-  app.use("/api", apiRouter);
   app.io = io;
+  app.use("/api", apiRouter);
 
   server.listen(PORT, function () {
     console.error(
@@ -47,12 +47,15 @@ if (!isDev && cluster.isMaster) {
     );
   });
   io.on("connection", (socket) => {
+    console.log("Client Connected");
     socket.on("hello", (data) => {});
 
     socket.on("addedData", (data) => {
       socket.broadcast.emit("newData", data);
     });
 
-    socket.on("disconnect", () => {});
+    socket.on("disconnect", () => {
+      console.log("Client disconnected");
+    });
   });
 }

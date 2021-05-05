@@ -9,16 +9,13 @@ export function ApiDataContextProvider(props) {
   const setLoading = useLoadingContext().setloading;
   const [guestbookData, setGuestbookData] = useState();
   const fetchGuestbookEntrys = async () => {
-    setLoading(true);
     let response = await fetch("/api/guestbook/entries");
     let data = await response.json();
 
     setGuestbookData(data);
-    setLoading(false);
   };
 
   const postDataToGuestbook = async (data) => {
-    setLoading(true);
     const dataObject = {
       name: data.name,
       entry: data.entry,
@@ -30,15 +27,27 @@ export function ApiDataContextProvider(props) {
         "Content-Type": "application/json",
       },
     });
-    setLoading(false);
-    if (response.ok) {
-      dataObject.date = new Date().toISOString();
-      socket.emit("addedData", data);
 
-      setGuestbookData((old) => [...old, dataObject]);
+    if (response.ok) {
     }
   };
 
+  const removeDataFromGuestbook = async (id) => {
+    let newArray = guestbookData.filter((e) => {
+      return e.id != id;
+    });
+    setGuestbookData(newArray);
+
+    try {
+      let response = await fetch("/api/guestbook/entries", {
+        method: "DELETE",
+        body: JSON.stringify({ id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {}
+  };
   useEffect(() => {
     fetchGuestbookEntrys();
   }, []);
@@ -50,9 +59,10 @@ export function ApiDataContextProvider(props) {
         socket.emit("hello", "Hello world from Client");
       });
       socket.on("messages", (data) => {});
-      socket.on("newData", (data) => {
-        data.date = new Date().toISOString();
+
+      socket.on("newEntry", (data) => {
         setGuestbookData((old) => [...old, data]);
+        console.log("NEW ENTRYY");
       });
 
       function name(params) {}
@@ -69,6 +79,7 @@ export function ApiDataContextProvider(props) {
         fetchGuestbookEntrys,
         postDataToGuestbook,
         setGuestbookData,
+        removeDataFromGuestbook,
       }}
     >
       {props.children}

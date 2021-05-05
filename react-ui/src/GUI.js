@@ -6,7 +6,11 @@ import { PostForm } from "./PostForm";
 
 export const GUI = () => {
   const apiContext = useApiContext().guestbookData;
-
+  let setData = useApiContext().setGuestbookData;
+  let removeData = useApiContext().removeDataFromGuestbook;
+  function deleteEntry(id) {
+    removeData(id);
+  }
   return (
     <div className='GUI'>
       <h1 className='pageHeader'>TheBaer.One🐻</h1>
@@ -18,9 +22,11 @@ export const GUI = () => {
             return (
               <Entry
                 name={object.name}
-                id={index + 1}
+                id={object.id}
                 date={object.date}
                 entry={object.entry}
+                index={index}
+                callback={deleteEntry}
               />
             );
           })

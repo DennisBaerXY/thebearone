@@ -25,10 +25,25 @@ router.post("/guestbook/entries", async (req, res) => {
       "insert into guestbook (name,date,entry) values ($1, $2,$3) returning *",
       [data.name, data.date, data.entry]
     );
+    req.app.io.emit("newEntry", newEntry.rows[0]);
     res.status(200).json({ status: "Posted!" });
   } catch (error) {
     console.log(error);
     res.sendStatus(404);
+  }
+});
+
+router.delete("/guestbook/entries", async (req, res) => {
+  try {
+    let data = req.body;
+    console.log(data);
+    const delelteEntry = await pool.query("delete from guestbook where id=$1", [
+      data.id,
+    ]);
+    res.status(200).json({ status: "deleted" });
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
   }
 });
 module.exports = router;
