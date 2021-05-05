@@ -1,7 +1,0 @@
-POST http://localhost:5000/api/guestbook/entries HTTP/1.1
-Content-Type: application/json
-
-{"id":1,"name":"Alexander Brückner", "date":"2021-03-19T11:21:48.000Z", "entry":"Schönes Gästebuch!"}
-
-###
-GET http://localhost:5000/api/guestbook/entries HTTP/1.1
