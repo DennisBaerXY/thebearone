@@ -25,11 +25,8 @@ if (!isDev && cluster.isMaster) {
 } else {
   const app = express();
   const server = require("http").createServer(app);
-  const io = require("socket.io")(server);
-  io.configure(() => {
-    io.set("transports", ["xhr-polling"]);
-    io.set("polling duration", 10);
-  });
+  const socketIO = require("socket.io");
+  const io = socketIO(server);
 
   app.use(express.json());
   app.use(morgan("dev"));

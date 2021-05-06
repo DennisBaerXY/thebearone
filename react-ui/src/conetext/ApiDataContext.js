@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import { useLoadingContext } from "./LoadingContext";
 //Creates the Context
 const ApiDataContext = React.createContext();
+
 const socket = io();
 //Component that wraps the other Components to provide the Context
 export function ApiDataContextProvider(props) {
