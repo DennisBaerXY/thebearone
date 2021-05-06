@@ -9,6 +9,7 @@ router.get("/guestbook/entries", async (req, res) => {
     const ergebnis = await pool.query("select * from guestbook");
     res.json(ergebnis.rows);
   } catch (error) {
+    console.log("Database Get Error: ", error);
     res.status(401).json({
       error: "Error occured from reading Database",
     });
@@ -18,13 +19,18 @@ router.get("/guestbook/entries", async (req, res) => {
 router.post("/guestbook/entries", async (req, res) => {
   try {
     let data = req.body;
+    let newEntry;
 
     data.date = new Date().toISOString();
+    try {
+      newEntry = await pool.query(
+        "insert into guestbook (name,date,entry) values ($1, $2,$3) returning *",
+        [data.name, data.date, data.entry]
+      );
+    } catch (error) {
+      console.log("Database Error:", error);
+    }
 
-    const newEntry = await pool.query(
-      "insert into guestbook (name,date,entry) values ($1, $2,$3) returning *",
-      [data.name, data.date, data.entry]
-    );
     req.app.io.emit("newEntry", newEntry.rows[0]);
     res.status(200).json({ status: "Posted!" });
   } catch (error) {
