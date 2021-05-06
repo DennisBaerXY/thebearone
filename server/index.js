@@ -26,7 +26,6 @@ if (!isDev && cluster.isMaster) {
   const app = express();
   const server = require("http").createServer(app);
   const socketIO = require("socket.io");
-  const io = socketIO(server);
 
   app.use(express.json());
   app.use(morgan("dev"));
@@ -37,8 +36,6 @@ if (!isDev && cluster.isMaster) {
   const apiRouter = require("./routes/api");
 
   // Answer API requests.
-  app.io = io;
-  app.use("/api", apiRouter);
 
   server.listen(PORT, function () {
     console.error(
@@ -47,6 +44,10 @@ if (!isDev && cluster.isMaster) {
       }: listening on port ${PORT}`
     );
   });
+  const io = socketIO(server);
+  app.io = io;
+  app.use("/api", apiRouter);
+
   io.on("connection", (socket) => {
     console.log("Client Connected");
     socket.on("hello", (data) => {});
