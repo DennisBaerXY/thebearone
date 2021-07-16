@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import { useApiContext } from "./conetext/ApiDataContext";
+import { useHistory } from "react-router-dom"
 import "./PostForm.css";
 
 export const PostForm = () => {
   const name = useRef();
+  const history = useHistory();
 
   const entry = useRef();
 
@@ -22,6 +24,7 @@ export const PostForm = () => {
           entry: entry.current.value,
         };
         postMethod(dataObject);
+        
       }}
     >
       <div className='inputGroup'>

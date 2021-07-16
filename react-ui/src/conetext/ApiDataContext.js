@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { useLoadingContext } from "./LoadingContext";
+
 //Creates the Context
 const ApiDataContext = React.createContext();
 
 const socket = io();
+
+
 //Component that wraps the other Components to provide the Context
 export function ApiDataContextProvider(props) {
+
+  
   const [guestbookData, setGuestbookData] = useState([]);
   const fetchGuestbookEntrys = async () => {
     let response = await fetch("/api/guestbook/entries");
@@ -64,9 +69,9 @@ export function ApiDataContextProvider(props) {
         setGuestbookData((old) => [...old, data]);
         console.log("NEW ENTRYY");
       });
-
-      function name(params) {}
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
 
     return () => socket.disconnect();
   }, []);
